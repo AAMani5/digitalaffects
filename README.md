@@ -1,8 +1,20 @@
-# Digital Affect
+# DigitalAffect
 
 ## One Line Description
 
 An app that assesses the mood of the country based on digital data.
+
+## Synopsis
+
+DigitalAffect is at the confluence of sentiment analysis, social media proliferation, machine learning and news media influence.
+
+We felt machine learning would be the most efficient way to analyse public opinion en masse by automating the sentiment analysis process. We arrived at this conclusion by researching popular tools in this field. The majority of the researchers chose the Python-based NLTK platform for its relatively extensive corpus collection and built-in features for tailoring machine learning.
+
+We chose Chart.js for its sleek display interface and its comprehensive functionality.
+
+We chose Twitter for its convenient character limitation which was ideal for working with our classifier to demonstrate public opinion.
+
+We chose NewsAPI for its extensive access to prominent UK headlines.
 
 ## User Stories
 ```
@@ -62,6 +74,14 @@ After:
 * Chocolate helps you learn!!
 
 ## Struggles
+
+* Communication due to group size but resolved through better feedback and regular standups
+* Task implementation through fair allocation via pairing and code reviews
+* Using Python with no prior knowledge
+* Using machine learning algorithms and understanding them
+* Getting the right datasets to train our classifier
+* Implementing a dynamic front-end interface with Flask, Javascript and JQuery
+* Figuring out how to pinpoint and process the right data from external APIs
 
 ## Contributing Code
 
