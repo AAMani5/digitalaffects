@@ -10,7 +10,7 @@ from sklearn.svm import SVC, LinearSVC, NuSVC
 
 from nltk.classify import ClassifierI
 from statistics import mode
-nltk.download('punkt')
+# nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
 short_pos = open("polaritydata/rt-polarity.pos", "r").read()
