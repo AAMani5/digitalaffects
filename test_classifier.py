@@ -1,5 +1,5 @@
 import pytest
-from NBclassifier import getVocabulary, extract_features
+from NBclassifier import getVocabulary, extract_features, getTrainingData
 
 def multiply(a, b):
     return a * b
@@ -16,3 +16,7 @@ def test_getVocabulary():
     actual = set(vocabulary).intersection(test_vocabulary)
     expected = {"great", "worst", "amazing", "terrible"}
     assert actual == expected
+
+
+def test_getTrainingData():
+    assert getTrainingData(["amazing", "great"],["terrible","worst"]) == [(["terrible"],'negative'),(["worst"],'negative'),(['amazing'],'positive'),(['great'], 'positive')]
