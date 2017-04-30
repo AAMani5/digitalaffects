@@ -7,8 +7,8 @@ def multiply(a, b):
 def test_numbers_3_4():
     assert multiply(3,4)==12
 
-# def test_extract_features():
-#     assert set(extract_features("this is a test").values()) == set([False,True])
+def test_extract_features():
+    assert set(extract_features("this is a test").values()) == set([False,True])
 
 def test_getVocabulary():
     vocabulary = getVocabulary(["amazing", "great"],["terrible","worst"])
