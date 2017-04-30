@@ -52,3 +52,77 @@ def find_features(document):
         features[w] = (w in words)
 
     return features
+
+
+random.shuffle(documents)
+
+featuresets = [(find_features(rev), category) for (rev, category) in documents]
+
+random.shuffle(featuresets)
+training_set = featuresets[:10000]
+testing_set = featuresets[10000:]
+
+classifier = nltk.NaiveBayesClassifier.train(training_set)
+
+print("Original Naive Bayes accuracy percent:", (nltk.classify.accuracy(classifier, testing_set))*100)
+classifier.show_most_informative_features(15)
+
+MNB_classifier = SklearnClassifier(MultinomialNB())
+MNB_classifier.train(training_set)
+print("MNB_classifier accuracy percent:", (nltk.classify.accuracy(MNB_classifier, testing_set))*100)
+
+BernoulliNB_classifier = SklearnClassifier(BernoulliNB())
+BernoulliNB_classifier.train(training_set)
+print("BernoulliNB_classifier accuracy percent:", (nltk.classify.accuracy(BernoulliNB_classifier, testing_set))*100)
+
+LogisticRegression_classifier = SklearnClassifier(LogisticRegression())
+LogisticRegression_classifier.train(training_set)
+print("LogisticRegression_classifier accuracy percent:", (nltk.classify.accuracy(LogisticRegression_classifier, testing_set))*100)
+
+SGDClassifier_classifier = SklearnClassifier(SGDClassifier())
+SGDClassifier_classifier.train(training_set)
+print("SGDClassifier_classifier accuracy percent:", (nltk.classify.accuracy(SGDClassifier_classifier, testing_set))*100)
+
+SVC_classifier = SklearnClassifier(SVC())
+SVC_classifier.train(training_set)
+print("SVC_classifier accuracy percent:", (nltk.classify.accuracy(SVC_classifier, testing_set))*100)
+
+LinearSVC_classifier = SklearnClassifier(LinearSVC())
+LinearSVC_classifier.train(training_set)
+print("LinearSVC_classifier accuracy percent:", (nltk.classify.accuracy(LinearSVC_classifier, testing_set))*100)
+
+NuSVC_classifier = SklearnClassifier(NuSVC())
+NuSVC_classifier.train(training_set)
+print("NuSVC_classifier accuracy percent:", (nltk.classify.accuracy(NuSVC_classifier, testing_set))*100)
+
+save_NuSVC_classifier = open("NuSVC.pickle", "wb")
+pickle.dump(NuSVC_classifier, save_NuSVC_classifier)
+save_NuSVC_classifier.close()
+
+save_LinearSVC_classifier = open("LinearSVC.pickle", "wb")
+pickle.dump(LinearSVC_classifier, save_LinearSVC_classifier)
+save_LinearSVC_classifier.close()
+
+save_SVCclassifier = open("SVC.pickle", "wb")
+pickle.dump(SVC_classifier, save_SVCclassifier)
+save_SVCclassifier.close()
+
+save_SGDClassifier= open("SGDClassifier.pickle", "wb")
+pickle.dump(SGDClassifier_classifier, save_SGDClassifier)
+save_SGDClassifier.close()
+
+save_LogisticRegression_classifier = open("LogisticRegression.pickle", "wb")
+pickle.dump(LogisticRegression_classifier, save_LogisticRegression_classifier)
+save_LogisticRegression_classifier.close()
+
+save_BernoulliNB_classifier = open("BernoulliNB.pickle", "wb")
+pickle.dump(BernoulliNB_classifier, save_BernoulliNB_classifier)
+save_BernoulliNB_classifier.close()
+
+save_MNBclassifier = open("MNB.pickle", "wb")
+pickle.dump(MNB_classifier, save_MNBclassifier)
+save_MNBclassifier.close()
+
+save_classifier = open("naivebayes.pickle", "wb")
+pickle.dump(classifier, save_classifier)
+save_classifier.close()
