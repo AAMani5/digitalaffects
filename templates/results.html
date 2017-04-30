@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GetMood</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+  </head>
+  <body>
+
+    <h2>DigitalAffect</h2>
+    <h3 id="sub_heading">Search criteria: {{text}}</h3>
+    <p id="result">{{values}}<p>
+
+    <div id="pie-chart-container">
+      <canvas id="pie-chartcanvas-1"></canvas>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
+    <script>
+      data1.datasets[0].data[0] = {{values[0]}};
+      data1.datasets[0].data[1] = {{values[1]}};
+      chart1.update();
+    </script>
+  </body>
+</html>
