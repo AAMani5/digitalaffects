@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <body>
+    <meta charset="utf-8">
+  <img src="https://raw.githubusercontent.com/AAMani5/digitalaffect/master/images/digitalaffect_full_small.png"/>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+  </head>
+
+
+    <form action="{{url_for('test')}}" method="POST">
+      <input type="text" name="userinput">
+      <button type="submit" id="accept"><b>Get mood</b></button>
+    </form>
+
+  </body>
+</html>

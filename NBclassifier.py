@@ -44,6 +44,8 @@ def getTrainedNaiveBayesClassifier(extract_features, trainingData):
   trainedNBClassifier=nltk.NaiveBayesClassifier.train(trainingFeatures) # Train the Classifier
   return trainedNBClassifier, trainingFeatures
 
+  
+
 def naiveBayesSentimentCalculator(tweet):
   problemInstance = tweet.split()
   problemFeatures = extract_features(problemInstance)

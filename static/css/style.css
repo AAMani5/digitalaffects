@@ -1,0 +1,68 @@
+
+div#pie-chart-container {
+  border-style: solid;
+  border-color: black;
+  height: 500px;
+  width: 500px;
+  margin: 40px;
+  margin-left: 83px;
+}
+
+img {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+h2 {
+  font-family: Arial;
+  font-size: 90px;
+  padding: 5px;
+  margin: 10px;
+}
+
+h3#sub_heading {
+  font-family: Arial;
+  font-size: 30px;
+  margin: 5px;
+}
+
+p#result{
+  font-family: Arial;
+  font-size: 30px;
+  margin: 5px;
+}
+
+body {
+  background-color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+input {
+  height: 30px;
+  width: 50%;
+  min-width: 450px;
+  margin-left: 25%;
+  margin-right: 25%;
+  font-size: medium;
+  border-style: outset;
+}
+
+title{
+  font-family: Arial;
+  padding: 150px;
+
+}
+
+button#accept {
+  margin: 2%;
+  height: 35px;
+  width: 100px;
+  font-size: small;
+  background-color: #fff;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}

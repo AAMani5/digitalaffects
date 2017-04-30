@@ -22,3 +22,31 @@ def extract_features(tweet):
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route("/json")
+def json():
+    results = session['results']
+    text = session['text']
+    values = [results.count('positive'), results.count('negative')]
+    return render_template('results.html', values=values, text=text)
+
+@app.route("/results", methods=['POST', 'GET'])
+def results():
+    if request.method == 'POST':
+        text = request.form['userinput']
+        tweets = getTweets(text, "en", 10, "recent", "tweets.txt")
+        results = []
+        for tweet in tweets:
+            problemInstance = tweet.split()
+            problemFeatures = extract_features(problemInstance)
+            result = trainedNBClassifier.classify(problemFeatures)
+            results.append(result)
+        session['results'] = results
+        session['text'] = text
+        return redirect(url_for('json'))
+
+
+if __name__ == '__main__':
+    app.debug = True
+    app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+    app.run()
