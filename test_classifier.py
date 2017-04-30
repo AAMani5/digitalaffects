@@ -1,4 +1,5 @@
 import pytest
+from NBclassifier import getVocabulary
 
 def multiply(a, b):
     return a * b
