@@ -24,4 +24,11 @@ def extract_features(tweet):
 
     return features
 
+def getTrainingData(trainingPositiveTweets, trainingNegativeTweets):
+  negTaggedTrainingTweetList = [{'Tweet':oneTweet.split(),'label':'negative'} for oneTweet in trainingNegativeTweets]
+  posTaggedTrainingTweetList = [{'Tweet':oneTweet.split(),'label':'positive'} for oneTweet in trainingPositiveTweets]
+  fullTaggedTrainingData = [item for sublist in [negTaggedTrainingTweetList,posTaggedTrainingTweetList] for item in sublist]
+  trainingData = [(Tweet['Tweet'],Tweet['label']) for Tweet in fullTaggedTrainingData]
+  return trainingData
+
 vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
