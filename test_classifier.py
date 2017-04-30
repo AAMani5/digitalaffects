@@ -1,5 +1,5 @@
 import pytest
-from NBclassifier import getVocabulary, extract_features, getTrainingData
+from NBclassifier import getVocabulary, extract_features, getTrainingData, getTrainedNaiveBayesClassifier
 
 def multiply(a, b):
     return a * b
