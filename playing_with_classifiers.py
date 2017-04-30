@@ -1,6 +1,6 @@
 import nltk
 import random
-from nltk.corpus import movie_reviews
+from nltk.corpus import twitter_samples
 from nltk.classify.scikitlearn import SklearnClassifier
 import pickle
 
@@ -9,25 +9,28 @@ from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.svm import SVC, LinearSVC, NuSVC
 
 from nltk.classify import ClassifierI
-from statistics import mode
-nltk.download('punkt')
+# from statistics import mode
+# nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
-short_pos = open("polaritydata/rt-polarity.pos", "r").read()
-short_neg = open("polaritydata/rt-polarity.neg", "r").read()
+short_pos = twitter_samples.strings('positive_tweets.json')
+short_neg = twitter_samples.strings('negative_tweets.json')
+
+# short_pos = open("polaritydata/rt-polarity.pos", "r").read()
+# short_neg = open("polaritydata/rt-polarity.neg", "r").read()
 
 documents = []
 
-for r in short_pos.split('\n'):
+for r in short_pos:
     documents.append( (r, "pos") )
 
-for r in short_neg.split('\n'):
+for r in short_neg:
     documents.append( (r, "neg") )
 
 all_words = []
 
-short_pos_words = word_tokenize(short_pos)
-short_neg_words = word_tokenize(short_neg)
+short_pos_words = word_tokenize("\n".join(short_pos))
+short_neg_words = word_tokenize("\n".join(short_neg))
 
 for w in short_pos_words:
     all_words.append(w.lower())
@@ -59,8 +62,8 @@ random.shuffle(documents)
 featuresets = [(find_features(rev), category) for (rev, category) in documents]
 
 random.shuffle(featuresets)
-training_set = featuresets[:10000]
-testing_set = featuresets[10000:]
+# training_set = featuresets[:10000]
+testing_set = featuresets
 
 # classifier = nltk.NaiveBayesClassifier.train(training_set)
 
