@@ -42,3 +42,13 @@ stop_words = list(common_words_dictionary.keys())
 
 word_features = list(all_words.keys())[:3000]
 refined_word_features = [x for x in word_features if x not in stop_words]
+
+
+def find_features(document):
+    words = word_tokenize(document)
+    # words = set(document)
+    features = {}
+    for w in refined_word_features:
+        features[w] = (w in words)
+
+    return features
