@@ -1,21 +1,21 @@
 
 div#pie-chart-container {
-  height: 750px;
-  width: 750px;
+  height: 650px;
+  width: 650px;
   margin: auto;
 }
 
 #pie-chart-container-1 {
-  height: 750px;
-  width: 750px;
+  height: 650px;
+  width: 650px;
   position: relative;
   margin: auto;
   z-index: 1;
 }
 
 #uk-map{
-  height: 580px;
-  width: 580px;
+  height: 480px;
+  width: 480px;
   margin: auto;
   margin-top: 75px;
   margin-left: 70px;
