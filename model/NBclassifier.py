@@ -37,24 +37,12 @@ def getTrainingData(trainingPositiveTweets, trainingNegativeTweets):
   trainingData = [(Tweet['Tweet'],Tweet['label']) for Tweet in fullTaggedTrainingData]
   return trainingData
 
+vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
 
 def getTrainedNaiveBayesClassifier(extract_features, trainingData):
   trainingFeatures=nltk.classify.apply_features(extract_features, trainingData)
   trainedNBClassifier=nltk.NaiveBayesClassifier.train(trainingFeatures) # Train the Classifier
-  return trainedNBClassifier
-
-vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
-trainingData = getTrainingData(trainingPositiveTweets, trainingNegativeTweets)
-# trainedNBClassifier = getTrainedNaiveBayesClassifier(extract_features,trainingData)
-
-## pickling classifier, vocabulary
-# with open('twitter_classifier.pickle', 'wb') as f:
-#     pickle.dump(trainedNBClassifier, f)
-#
-#
-# with open('vocabulary.pickle', 'wb') as vocabulary_file:
-#     pickle.dump(vocabulary, vocabulary_file)
-
+  return trainedNBClassifier, trainingFeatures
 
 def naiveBayesSentimentCalculator(tweet):
   problemInstance = tweet.split()
@@ -62,14 +50,14 @@ def naiveBayesSentimentCalculator(tweet):
   return trainedNBClassifier.classify(problemFeatures)
 
 def getTesttweetSentiments(naiveBayesSentimentCalculator):
-  testNegResults = [naiveBayesSentimentCalculator(tweet) for tweet in testNegativetweets]
-  testPosResults = [naiveBayesSentimentCalculator(tweet) for tweet in testPositivetweets]
+  testNegResults = [naiveBayesSentimentCalculator(tweet) for tweet in testNegativeTweets]
+  testPosResults = [naiveBayesSentimentCalculator(tweet) for tweet in testPositiveTweets]
   labelToNum = {'positive':1,'negative':-1}
   numericNegResults = [labelToNum[x] for x in testNegResults]
   numericPosResults = [labelToNum[x] for x in testPosResults]
   return {'results-on-positive':numericPosResults, 'results-on-negative':numericNegResults}
 
-#
+
 def runDiagnostics(tweetResult):
   positiveTweetsResult = tweetResult['results-on-positive']
   negativeTweetsResult = tweetResult['results-on-negative']
@@ -82,6 +70,3 @@ def runDiagnostics(tweetResult):
   print("Accuracy on positive tweets = " +"%.2f" % (pctTruePositive*100) + "%")
   print("Accuracy on negative tweets = " +"%.2f" % (pctTrueNegative*100) + "%")
   print("Overall accuracy = " + "%.2f" % (totalAccurate*100/total) + "%")
-
-# reviewResult = getTesttweetSentiments(naiveBayesSentimentCalculator)
-# runDiagnostics(reviewResult)
