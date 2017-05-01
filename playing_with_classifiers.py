@@ -1,6 +1,6 @@
 import nltk
 import random
-# from nltk.corpus import twitter_samples
+from nltk.corpus import twitter_samples
 from nltk.classify.scikitlearn import SklearnClassifier
 import pickle
 
@@ -13,27 +13,27 @@ from statistics import mode
 # nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
-# short_pos = twitter_samples.strings('positive_tweets.json')
-# short_neg = twitter_samples.strings('negative_tweets.json')
+short_pos = twitter_samples.strings('positive_tweets.json')
+short_neg = twitter_samples.strings('negative_tweets.json')
 
-short_pos = open("polaritydata/rt-polarity.pos", "r").read()
-short_neg = open("polaritydata/rt-polarity.neg", "r").read()
+# short_pos = open("polaritydata/rt-polarity.pos", "r").read()
+# short_neg = open("polaritydata/rt-polarity.neg", "r").read()
 
 documents = []
 # twitter:
-# for r in short_pos:
-for r in short_pos.split("\n"):
+for r in short_pos:
+# for r in short_pos.split("\n"):
     documents.append( (r, "pos") )
-
-for r in short_neg.split("\n"):
+for r in short_neg:
+# for r in short_neg.split("\n"):
     documents.append( (r, "neg") )
 
 all_words = []
 # for twitter:
-# short_pos_words = word_tokenize("\n".join(short_pos))
-# short_neg_words = word_tokenize("\n".join(short_neg))
-short_pos_words = word_tokenize(short_pos)
-short_neg_words = word_tokenize(short_neg)
+short_pos_words = word_tokenize("\n".join(short_pos))
+short_neg_words = word_tokenize("\n".join(short_neg))
+# short_pos_words = word_tokenize(short_pos)
+# short_neg_words = word_tokenize(short_neg)
 for w in short_pos_words:
     all_words.append(w.lower())
 for w in short_neg_words:
@@ -44,8 +44,8 @@ all_words = nltk.FreqDist(all_words)
 common_words = all_words.most_common(20)
 common_words_dictionary = dict(common_words)
 stop_words = list(common_words_dictionary.keys())
-
-word_features = list(all_words.keys())[:5000]
+print(stop_words)
+word_features = list(all_words.keys())[:15000]
 refined_word_features = [x for x in word_features if x not in stop_words]
 
 
@@ -60,12 +60,11 @@ def find_features(document):
 
 
 random.shuffle(documents)
-
+# print(documents[1])
 featuresets = [(find_features(rev), category) for (rev, category) in documents]
-
-random.shuffle(featuresets)
-training_set = featuresets[:10000]
-testing_set = featuresets[10000:]
+# random.shuffle(featuresets)
+training_set = featuresets[:9500]
+testing_set = featuresets[:500]
 
 # classifier = nltk.NaiveBayesClassifier.train(training_set)
 
