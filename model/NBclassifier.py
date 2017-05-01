@@ -37,14 +37,14 @@ def getTrainingData(trainingPositiveTweets, trainingNegativeTweets):
   trainingData = [(Tweet['Tweet'],Tweet['label']) for Tweet in fullTaggedTrainingData]
   return trainingData
 
+vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
+trainingData = getTrainingData(trainingPositiveTweets, trainingNegativeTweets)
 
-def getTrainedNaiveBayesClassifier(extract_features, trainingData):
+def getTrainedNaiveBayesClassifier(extract_features = extract_features, trainingData = trainingData):
   trainingFeatures=nltk.classify.apply_features(extract_features, trainingData)
   trainedNBClassifier=nltk.NaiveBayesClassifier.train(trainingFeatures) # Train the Classifier
   return trainedNBClassifier
 
-vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
-trainingData = getTrainingData(trainingPositiveTweets, trainingNegativeTweets)
 # trainedNBClassifier = getTrainedNaiveBayesClassifier(extract_features,trainingData)
 
 ## pickling classifier, vocabulary

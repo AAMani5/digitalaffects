@@ -23,3 +23,6 @@ def test_getTrainingData():
 
 def test_naiveBayesSentimentCalculator():
     assert naiveBayesSentimentCalculator("having an amazing day") == "positive"
+
+def test_trainedClassifer():
+    assert type(getTrainedNaiveBayesClassifier()).__name__ == "NaiveBayesClassifier"
