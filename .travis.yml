@@ -6,5 +6,6 @@ install:
   - sudo mv nltk_data /usr/share/nltk_data
 
 script:
+  - virtualenv venv
   - source venv/bin/activate
   - python -m pytest -v test/
