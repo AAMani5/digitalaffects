@@ -17,8 +17,8 @@ div#pie-chart-container {
   height: 480px;
   width: 480px;
   margin: auto;
-  margin-top: 75px;
-  margin-left: 70px;
+  margin-top: 80px;
+  margin-left: 35px;
   position: absolute;
   display: block;
   z-index: 2;
