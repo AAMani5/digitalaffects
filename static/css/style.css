@@ -9,8 +9,8 @@ div#pie-chart-container {
 }
 
 img {
-  margin-top: 10%;
-  margin-bottom: 5%;
+  margin-top: 25%;
+  margin-bottom: 2%;
   margin-left: 25%;
   margin-right: 25%;
 }
@@ -35,9 +35,11 @@ p#result{
 }
 
 body {
+  width: 960px;
   background-color: #fff;
   text-align: center;
-  margin: 0;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 input {
