@@ -3,3 +3,5 @@ apikeys.py
 apikeys.pyc
 /__pycache__/apikeys.cpython-36.pyc
 twitterAPI.cpython-36.pyc
+__pycache__/
+*.pyc
