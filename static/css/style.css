@@ -1,10 +1,13 @@
 
 div#pie-chart-container {
-  height: 500px;
-  width: 500px;
-  margin: 40px;
-  margin-left: 25%;
-  margin-right: 25%;
+  height: 750px;
+  width: 750px;
+  margin: auto;
+}
+
+#pie-chart-container-1 {
+  height: 750px;
+  width: 750px;
 }
 
 img {

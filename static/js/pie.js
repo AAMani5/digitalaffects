@@ -1,5 +1,4 @@
 document.addEventListener( 'DOMContentLoaded', function () {
-    console.log("Welcome user");
 }, false );
 
 var chart1;
@@ -27,7 +26,6 @@ var options = {
      title: {
          display: true,
          position: "top",
-         text: "Mood in the UK",
          fontSize: 18,
          fontColor: "#111"
      },
