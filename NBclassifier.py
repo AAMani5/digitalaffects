@@ -83,5 +83,5 @@ def runDiagnostics(tweetResult):
   print("Accuracy on negative tweets = " +"%.2f" % (pctTrueNegative*100) + "%")
   print("Overall accuracy = " + "%.2f" % (totalAccurate*100/total) + "%")
 
-reviewResult = getTesttweetSentiments(naiveBayesSentimentCalculator)
-runDiagnostics(reviewResult)
+# reviewResult = getTesttweetSentiments(naiveBayesSentimentCalculator)
+# runDiagnostics(reviewResult)
