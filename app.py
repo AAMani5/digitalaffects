@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 import requests
 import json
 import pickle
-# from twitterAPI import getTweets
+from twitterAPI import getTweets
 
 with open('twitter_classifier.pickle', 'rb') as f:
     trainedNBClassifier = pickle.load(f)
@@ -27,21 +27,23 @@ def index():
 def json():
     results = session['results']
     text = session['text']
+    tweets = session['tweets']
     values = [results.count('positive'), results.count('negative')]
-    return render_template('results.html', values=values, text=text)
+    return render_template('results.html', values=values, text=text, tweets=tweets)
 
 @app.route("/results", methods=['POST'])
 def results():
     if request.method == 'POST':
         text = request.form['userinput']
-        tweets = [text]
-        # tweets = getTweets(text, "en", 10, "recent", "tweets.txt")
+        tweets = getTweets(text)
         results = []
         for tweet in tweets:
             problemInstance = tweet.split()
             problemFeatures = extract_features(problemInstance)
             result = trainedNBClassifier.classify(problemFeatures)
             results.append(result)
+
+        session['tweets'] = list(zip(tweets, results))
         session['results'] = results
         session['text'] = text
         return redirect(url_for('json'))
