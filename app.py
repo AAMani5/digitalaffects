@@ -2,22 +2,10 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 import requests
 import json
 import pickle
-from twitterAPI import getTweets
-
-with open('twitter_classifier.pickle', 'rb') as f:
-    trainedNBClassifier = pickle.load(f)
-
-with open('vocabulary.pickle', 'rb') as vocabulary_file:
-    vocabulary = pickle.load(vocabulary_file)
+from model.twitterAPI import getTweets
+from model.NBclassifier import naiveBayesSentimentCalculator
 
 app = Flask(__name__)
-
-def extract_features(tweet):
-  tweet_words=set(tweet)
-  features={}
-  for word in vocabulary:
-      features[word]=(word in tweet_words)
-  return features
 
 @app.route("/")
 def index():
@@ -38,9 +26,7 @@ def results():
         tweets = getTweets(text)
         results = []
         for tweet in tweets:
-            problemInstance = tweet.split()
-            problemFeatures = extract_features(problemInstance)
-            result = trainedNBClassifier.classify(problemFeatures)
+            result = naiveBayesSentimentCalculator(tweet)
             results.append(result)
 
         session['tweets'] = list(zip(tweets, results))

@@ -1,6 +1,6 @@
 import pytest
 import pytest
-from digitalaffects.model.NBclassifier import getVocabulary, extract_features, getTrainingData, getTrainedNaiveBayesClassifier
+from digitalaffects.model.NBclassifier import getVocabulary, extract_features, getTrainingData, getTrainedNaiveBayesClassifier, getTrainedNaiveBayesClassifier, naiveBayesSentimentCalculator
 
 def multiply(a, b):
     return a * b
@@ -18,6 +18,11 @@ def test_getVocabulary():
     expected = {"great", "worst", "amazing", "terrible"}
     assert actual == expected
 
-
 def test_getTrainingData():
     assert getTrainingData(["amazing", "great"],["terrible","worst"]) == [(["terrible"],'negative'),(["worst"],'negative'),(['amazing'],'positive'),(['great'], 'positive')]
+
+def test_naiveBayesSentimentCalculator():
+    assert naiveBayesSentimentCalculator("having an amazing day") == "positive"
+
+def test_trainedClassifer():
+    assert type(getTrainedNaiveBayesClassifier()).__name__ == "NaiveBayesClassifier"
