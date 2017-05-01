@@ -1,11 +1,10 @@
 
 div#pie-chart-container {
-  border-style: solid;
-  border-color: black;
   height: 500px;
   width: 500px;
   margin: 40px;
-  margin-left: 83px;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 img {
@@ -23,6 +22,7 @@ h2 {
 }
 
 h3#sub_heading {
+  padding-top: 10%;
   font-family: Arial;
   font-size: 30px;
   margin: 5px;

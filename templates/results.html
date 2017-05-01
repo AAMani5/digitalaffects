@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
     <meta charset="utf-8">
-    <title>GetMood</title>
+    <title>Results</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
   </head>
   <body>
 
-    <h2>DigitalAffect</h2>
     <h3 id="sub_heading">Search criteria: {{text}}</h3>
-    <p id="result">{{values}}<p>
+    <!-- <p id="result">{{values}}<p> -->
 
     <div id="pie-chart-container">
       <canvas id="pie-chartcanvas-1"></canvas>
     </div>
-
-    <div>Tweets: {{tweets}}</div>
 
 
     <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
