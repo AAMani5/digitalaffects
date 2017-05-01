@@ -8,6 +8,21 @@ div#pie-chart-container {
 #pie-chart-container-1 {
   height: 750px;
   width: 750px;
+  position: relative;
+  margin: auto;
+  z-index: 1;
+}
+
+#uk-map{
+  height: 580px;
+  width: 580px;
+  margin: auto;
+  margin-top: 75px;
+  margin-left: 70px;
+  position: absolute;
+  display: block;
+  z-index: 2;
+
 }
 
 img {
