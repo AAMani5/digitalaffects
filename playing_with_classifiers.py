@@ -1,6 +1,6 @@
 import nltk
 import random
-from nltk.corpus import twitter_samples
+# from nltk.corpus import twitter_samples
 from nltk.classify.scikitlearn import SklearnClassifier
 import pickle
 
@@ -13,25 +13,27 @@ from statistics import mode
 # nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
-short_pos = twitter_samples.strings('positive_tweets.json')
-short_neg = twitter_samples.strings('negative_tweets.json')
+# short_pos = twitter_samples.strings('positive_tweets.json')
+# short_neg = twitter_samples.strings('negative_tweets.json')
 
-# short_pos = open("polaritydata/rt-polarity.pos", "r").read()
-# short_neg = open("polaritydata/rt-polarity.neg", "r").read()
+short_pos = open("polaritydata/rt-polarity.pos", "r").read()
+short_neg = open("polaritydata/rt-polarity.neg", "r").read()
 
 documents = []
-
-for r in short_pos:
+# twitter:
+# for r in short_pos:
+for r in short_pos.split("\n"):
     documents.append( (r, "pos") )
 
-for r in short_neg:
+for r in short_neg.split("\n"):
     documents.append( (r, "neg") )
 
 all_words = []
-
-short_pos_words = word_tokenize("\n".join(short_pos))
-short_neg_words = word_tokenize("\n".join(short_neg))
-
+# for twitter:
+# short_pos_words = word_tokenize("\n".join(short_pos))
+# short_neg_words = word_tokenize("\n".join(short_neg))
+short_pos_words = word_tokenize(short_pos)
+short_neg_words = word_tokenize(short_neg)
 for w in short_pos_words:
     all_words.append(w.lower())
 for w in short_neg_words:
@@ -43,7 +45,7 @@ common_words = all_words.most_common(20)
 common_words_dictionary = dict(common_words)
 stop_words = list(common_words_dictionary.keys())
 
-word_features = list(all_words.keys())[:3000]
+word_features = list(all_words.keys())[:5000]
 refined_word_features = [x for x in word_features if x not in stop_words]
 
 
@@ -62,8 +64,8 @@ random.shuffle(documents)
 featuresets = [(find_features(rev), category) for (rev, category) in documents]
 
 random.shuffle(featuresets)
-# training_set = featuresets[:10000]
-testing_set = featuresets
+training_set = featuresets[:10000]
+testing_set = featuresets[10000:]
 
 # classifier = nltk.NaiveBayesClassifier.train(training_set)
 
@@ -109,7 +111,7 @@ print("MNB_classifier accuracy percent:", (nltk.classify.accuracy(MNB_classifier
 # BernoulliNB_classifier = SklearnClassifier(BernoulliNB())
 # BernoulliNB_classifier.train(training_set)
 print("BernoulliNB_classifier accuracy percent:", (nltk.classify.accuracy(BernoulliNB_classifier, testing_set))*100)
-#
+
 # LogisticRegression_classifier = SklearnClassifier(LogisticRegression())
 # LogisticRegression_classifier.train(training_set)
 print("LogisticRegression_classifier accuracy percent:", (nltk.classify.accuracy(LogisticRegression_classifier, testing_set))*100)
@@ -117,11 +119,11 @@ print("LogisticRegression_classifier accuracy percent:", (nltk.classify.accuracy
 # SGDClassifier_classifier = SklearnClassifier(SGDClassifier())
 # SGDClassifier_classifier.train(training_set)
 print("SGDClassifier_classifier accuracy percent:", (nltk.classify.accuracy(SGDClassifier_classifier, testing_set))*100)
-#
+
 # SVC_classifier = SklearnClassifier(SVC())
 # SVC_classifier.train(training_set)
 print("SVC_classifier accuracy percent:", (nltk.classify.accuracy(SVC_classifier, testing_set))*100)
-#
+
 # LinearSVC_classifier = SklearnClassifier(LinearSVC())
 # LinearSVC_classifier.train(training_set)
 print("LinearSVC_classifier accuracy percent:", (nltk.classify.accuracy(LinearSVC_classifier, testing_set))*100)
