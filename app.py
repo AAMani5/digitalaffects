@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
-from flask.ext.navigation import Navigation
+from flask_navigation import Navigation
 import requests
 import json
 import pickle

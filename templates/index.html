@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
-  <body>
-    <meta charset="utf-8">
+{% extends "layout.html" %}
+{% block body %}
   <img src="https://raw.githubusercontent.com/AAMani5/digitalaffect/master/images/digitalaffect_full_small.png"/>
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
-  </head>
-
-
     <form action="{{url_for('results')}}" method="POST">
       <input type="text" name="userinput">
       <button type="submit" id="accept"><b>Get mood</b></button>
     </form>
-
-  </body>
-</html>
+{% endblock %}

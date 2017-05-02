@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
-    <meta charset="utf-8">
-    <title>Results</title>
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+{% extends "layout.html" %}
+{% block body %}
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
-  </head>
-  <body>
-
-  <ul>
-    {% for item in nav.top %}
-    <li class="{{ 'active' if item.is_active else '' }}">
-        <a href="{{ item.url }}">{{ item.label }}</a>
-    </li>
-    {% endfor %}
-  </ul>
 
     <h3 id="sub_heading">Mood in the UK about {{text}}</h3>
-    <!-- <p id="result">{{values}}<p> -->
 
     <div id="pie-chart-container">
 
@@ -33,5 +18,4 @@
       data1.datasets[0].data[1] = {{values[1]}};
       chart1.update();
     </script>
-  </body>
-</html>
+{% endblock %}
