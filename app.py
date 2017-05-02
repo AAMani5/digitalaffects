@@ -23,7 +23,6 @@ def extract_features(tweet):
 
 nav.Bar('top', [
     nav.Item('Home', 'index'),
-    nav.Item('Home', 'index'),
 ])
 
 @app.route("/")
