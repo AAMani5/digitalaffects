@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask.ext.navigation import Navigation
 import requests
 import json
 import pickle
@@ -11,6 +12,7 @@ with open('vocabulary.pickle', 'rb') as vocabulary_file:
     vocabulary = pickle.load(vocabulary_file)
 
 app = Flask(__name__)
+nav = Navigation(app)
 
 def extract_features(tweet):
   tweet_words=set(tweet)
@@ -18,6 +20,11 @@ def extract_features(tweet):
   for word in vocabulary:
       features[word]=(word in tweet_words)
   return features
+
+nav.Bar('top', [
+    nav.Item('Home', 'index'),
+    nav.Item('Home', 'index'),
+])
 
 @app.route("/")
 def index():
