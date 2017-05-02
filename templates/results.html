@@ -6,17 +6,17 @@
     <title>Results</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+
   </head>
   <body>
-
-  <ul>
-    {% for item in nav.top %}
-    <li class="{{ 'active' if item.is_active else '' }}">
-        <a href="{{ item.url }}">{{ item.label }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-
+    <ul>
+      {% for item in nav.top %}
+      <li class="{{ 'active' if item.is_active else '' }}">
+          <a href="{{ item.url }}">{{ item.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    
     <h3 id="sub_heading">Mood in the UK about {{text}}</h3>
     <!-- <p id="result">{{values}}<p> -->
 

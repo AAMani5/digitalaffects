@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
-from flask.ext.navigation import Navigation
+from flask_navigation import Navigation
 import requests
 import json
 import pickle
@@ -22,7 +22,6 @@ def extract_features(tweet):
   return features
 
 nav.Bar('top', [
-    nav.Item('Home', 'index'),
     nav.Item('Home', 'index'),
 ])
 

@@ -2,13 +2,20 @@
 <html>
   <head>
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
-  <body>
     <meta charset="utf-8">
-  <img src="https://raw.githubusercontent.com/AAMani5/digitalaffect/master/images/digitalaffect_full_small.png"/>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
   </head>
+  <body>
 
+  <ul>
+    {% for item in nav.top %}
+    <li class="{{ 'active' if item.is_active else '' }}">
+        <a href="{{ item.url }}">{{ item.label }}</a>
+    </li>
+    {% endfor %}
+  </ul>
 
+  <img src="https://raw.githubusercontent.com/AAMani5/digitalaffect/master/images/digitalaffect_full_small.png"/>
     <form action="{{url_for('results')}}" method="POST">
       <input type="text" name="userinput">
       <button type="submit" id="accept"><b>Get mood</b></button>
