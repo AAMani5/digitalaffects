@@ -40,7 +40,6 @@ def create_app():
         return jsonify(ping='pong')
 
     return app
-    return app
 
 # secret_key for sessions exposed as no sensitive data stored on sessions
 if __name__ == '__main__':
