@@ -20,7 +20,7 @@ def create_app():
         values = [results.count('positive'), results.count('negative')]
         return render_template('results.html', values=values, text=text, tweets=tweets)
 
-    @app.route("/results", methods=['POST'])
+    @app.route("/results", methods=['POST', 'GET'])
     def results():
         if request.method == 'POST':
             text = request.form['userinput']
