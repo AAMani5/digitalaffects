@@ -11,12 +11,12 @@ var data1 = {
               label: "Positive and Negative",
               data: [1, 1],
               backgroundColor: [
-                  "#62D2A2",
-                  "#F19584"
+                  "#FFD1CA",
+                  "#CFD5E5"
               ],
               borderColor: [
-                  "#62D2A2",
-                  "#F19584"
+                  "#FFD1CA",
+                  "#CFD5E5"
               ],
               borderWidth: [1, 1, 1, 1, 1]
           }
