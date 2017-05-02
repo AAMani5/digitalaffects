@@ -1,4 +1,5 @@
 ul#navbar {
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding-left: 200px;
@@ -40,7 +41,9 @@ li#tweet {
 }
 
 div#tweet-box {
-  margin-left: 40px;
+  position: absolute;
+  left: 940px;
+  /*margin-left: 40px;*/
   float: left;
   margin-top: 6%;
 }
@@ -48,7 +51,9 @@ div#tweet-box {
 div#pie-chart-container {
   height: 650px;
   width: 650px;
-  margin-left: 15%;
+  position: absolute;
+  left: 252px;
+  /*margin-left: 15%;*/
   float: left;
 }
 
