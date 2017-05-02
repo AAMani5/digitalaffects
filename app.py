@@ -49,7 +49,7 @@ def results():
             result = trainedNBClassifier.classify(problemFeatures)
             results.append(result)
 
-        session['tweets'] = list(zip(tweets, results))
+        session['tweets'] = tweets
         session['results'] = results
         session['text'] = text
         return redirect(url_for('json'))

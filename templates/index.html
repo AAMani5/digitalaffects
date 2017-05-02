@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-  <img src="https://raw.githubusercontent.com/AAMani5/digitalaffect/master/images/digitalaffect_full_small.png"/>
+  <img id="home-logo" src="/static/da_logo_small.png"/>
     <form action="{{url_for('results')}}" method="POST">
       <input type="text" name="userinput">
       <button type="submit" id="accept"><b>Get mood</b></button>
