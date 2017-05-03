@@ -32,13 +32,28 @@ I want to be able to see the percentage of people who are positive or negative a
 ```
 ```
 As a User,
-So I can see people's opinions,
-I want to be able to see the tweets from my search results.
+So that I have confidence I am seeing the UK public's unbiased opinion,
+I want the data to come from UK-based Twitter Users via their tweets.
+```
+```
+As a User,
+So that it's easy to use the site,
+I want it to have a simple interface.
+```
+```
+As a User,
+So that I can enjoy using the site,
+I want the site to look nice.
 ```
 ```
 As a User,
 So that I can have a visual representation of the output,
 I would like to see the percentages of positive and negative views represented as a pie chart.
+```
+```
+As a User,
+So I can see people's opinions,
+I want to be able to see the tweets from my search results.
 ```
 ```
 As a User,
@@ -56,9 +71,11 @@ We planned out how hopes for our first 3 MVPs. The first was a simple text input
 
 The MVP2 was a pie chart generated from the data given that showed multiple moods. In reality we had to scale this back to just positive and negative moods due to the challenge presented by the refinement of our classifier.
 
-Reminder: pie chart screenshot
+![alt text](/images/pie-1.png "MVP2 Pie chart")
 
-MVP3 TBA
+MVP3 was the shiny version of our efforts with a scrolling tweet bar so you can see UK Twitter's opinions for yourself. We couple this with added classifier refinement, though we recognise in 2 weeks it's unlikely to be perfect.
+
+![alt text](/images/mvp3.png "MVP3 results page")
 
 ## Naive Bayes
 
@@ -97,8 +114,11 @@ After:
 * Using Python with no prior knowledge
 * Using machine learning algorithms and understanding them
 * Getting the right datasets to train our classifier
+* Refining the classifier
 * Implementing a dynamic front-end interface with Flask, Javascript and JQuery
 * Figuring out how to pinpoint and process the right data from external APIs
+* Maintaining energy levels and work output at a steady rate
+* Cutting features to keep the end goal realistic
 
 ## Contributing Code
 
