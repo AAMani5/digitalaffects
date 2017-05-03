@@ -20,7 +20,7 @@ def index():
 @app.route("/results", methods=['GET'])
 def results():
     if request.method == 'GET':
-        text = request.args.get('key', '')
+        text = request.args.get('userinput')
         tweets = getTweets(text)
         results = []
 
