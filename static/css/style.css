@@ -1,18 +1,96 @@
-
-div#pie-chart-container {
-  border-style: solid;
-  border-color: black;
-  height: 500px;
-  width: 500px;
-  margin: 40px;
-  margin-left: 83px;
+ul#navbar {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 200px;
+    overflow: hidden;
+    background-color: #333;
 }
 
-img {
-  margin-top: 10%;
-  margin-bottom: 5%;
+ul#tweets {
+  margin-left: auto;
+  overflow: scroll;
+  padding: 10px;
+  border-style: groove;
+  border-radius: 8px;
+  height: 400px;
+  width: 450px;
+  list-style-type: none;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+li#tweet {
+  width: 450px;
+  border-bottom-style: inset;
+  text-align: left;
+}
+
+div#tweet-box {
+  position: absolute;
+  left: 940px;
+  /*margin-left: 40px;*/
+  float: left;
+  margin-top: 6%;
+}
+
+div#pie-chart-container {
+  height: 650px;
+  width: 650px;
+  position: absolute;
+  left: 252px;
+  /*margin-left: 15%;*/
+  float: left;
+}
+
+#pie-chart-container-1 {
+  height: 650px;
+  width: 650px;
+  position: relative;
+}
+
+#pie-chartcanvas-1 {
+  opacity: 0.9;
+  z-index: 1;
+}
+
+img#uk-map{
+  height: 480px;
+  width: 480px;
+  margin-top: 90px;
+  margin-left: 35px;
+  position: absolute;
+  display: block;
+  z-index: -1;
+
+}
+
+img#home-logo {
+  margin-top: 15%;
+  margin-bottom: 2%;
   margin-left: 25%;
   margin-right: 25%;
+}
+
+img#navbar-logo {
+  margin-left: 10px;
+  display: block;
+  position: absolute;
+  margin-top: 4px;
 }
 
 h2 {
@@ -23,9 +101,13 @@ h2 {
 }
 
 h3#sub_heading {
+  padding-top: 5%;
   font-family: Arial;
   font-size: 30px;
-  margin: 5px;
+  width: 1126px;
+  margin-left: 15%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 p#result{
@@ -35,9 +117,11 @@ p#result{
 }
 
 body {
+  font-family: Arial;
+  width: 100%;
   background-color: #fff;
   text-align: center;
-  margin: 0;
+  margin: auto;
 }
 
 input {
@@ -54,6 +138,11 @@ title{
   font-family: Arial;
   padding: 150px;
 
+}
+
+span {
+  padding-bottom: 10px;
+  float: left;
 }
 
 button#accept {

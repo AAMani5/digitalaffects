@@ -1,5 +1,4 @@
 document.addEventListener( 'DOMContentLoaded', function () {
-    console.log("Welcome user");
 }, false );
 
 var chart1;
@@ -12,12 +11,12 @@ var data1 = {
               label: "Positive and Negative",
               data: [1, 1],
               backgroundColor: [
-                  "#62D2A2",
-                  "#F19584"
+                  "#FFD1CA",
+                  "#CFD5E5"
               ],
               borderColor: [
-                  "#62D2A2",
-                  "#F19584"
+                  "#FFD1CA",
+                  "#CFD5E5"
               ],
               borderWidth: [1, 1, 1, 1, 1]
           }
@@ -27,7 +26,6 @@ var options = {
      title: {
          display: true,
          position: "top",
-         text: "Mood in the UK",
          fontSize: 18,
          fontColor: "#111"
      },

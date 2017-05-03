@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask_navigation import Navigation
 import requests
 import json
 import pickle
@@ -6,6 +7,11 @@ from model.twitterAPI import getTweets
 from model.NBclassifier import naiveBayesSentimentCalculator
 
 app = Flask(__name__)
+nav = Navigation(app)
+
+nav.Bar('top', [
+    nav.Item('Home', 'index'),
+])
 
 @app.route("/")
 def index():
@@ -29,7 +35,7 @@ def results():
             result = naiveBayesSentimentCalculator(tweet)
             results.append(result)
 
-        session['tweets'] = list(zip(tweets, results))
+        session['tweets'] = tweets
         session['results'] = results
         session['text'] = text
         return redirect(url_for('json'))

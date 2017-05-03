@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/static/shipitalbert_favicon.png">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+    <title>DigitalAffect</title>
+  </head>
+  <body>
+    <a href="/"><img id="navbar-logo" src="static/da_invert_logo_hq_tiny.png"></a>
+    <ul id="navbar">
+      {% for item in nav.top %}
+      <li class="{{ 'active' if item.is_active else '' }}">
+        <a href="{{ item.url }}">{{ item.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div id="body">
+      {% block body %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>
