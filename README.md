@@ -98,7 +98,7 @@ After:
 ## Successes
 
 * Reached MVP on day two!
-* Identified the most relevant technologies for our project and learned to use them in less than a week.
+* Identified the most relevant technologies for our project and learned to use them in less than a week
 * Reached MVP2 on day four which required the following to be integrated:
   * Python classifier
   * Flask web framework MVC
