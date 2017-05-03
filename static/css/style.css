@@ -40,6 +40,10 @@ li#tweet {
   border-bottom-style: inset;
   text-align: left;
   background-color: skyblue;
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  box-shadow: inset 0 0 0 1px #707070;
+  transition: box-shadow 0.3s, border 0.3s;
 }
 
 div#tweet-box {
@@ -157,4 +161,5 @@ button#accept {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
+
 
