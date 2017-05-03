@@ -1,5 +1,3 @@
-# digitalAffect
-
 ![alt text](/images/da_logo_small.png "digitalAffect logo")
 
 ## One Line Description
