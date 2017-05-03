@@ -17,10 +17,10 @@ nav.Bar('top', [
 def index():
     return render_template('index.html')
 
-@app.route("/results", methods=['POST', 'GET'])
+@app.route("/results", methods=['GET'])
 def results():
-    if request.method == 'POST':
-        text = request.form['userinput']
+    if request.method == 'GET':
+        text = request.args.get('userinput')
         tweets = getTweets(text)
         results = []
 
