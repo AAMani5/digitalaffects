@@ -1,4 +1,6 @@
-# DigitalAffect
+# digitalAffect
+
+![alt text](/images/da_logo_small.png "digitalAffect logo")
 
 ## One Line Description
 
@@ -63,11 +65,11 @@ I want to be able to click back to the homepage.
 
 ## MVP
 
-![alt text](https://github.com/AAMani5/digitalaffect/blob/master/images/DifferentVersions.JPG "MVP diagram")
+![alt text](/images/DifferentVersions.JPG "MVP diagram")
 
 We planned out how hopes for our first 3 MVPs. The first was a simple text input with a positive or negative string output displayed. We reached this on the second day:
 
-![alt text](https://github.com/AAMani5/digitalaffect/blob/master/images/negMVP.png "Trump Negative")
+![alt text](/images/negMVP.png "Trump Negative")
 
 The MVP2 was a pie chart generated from the data given that showed multiple moods. In reality we had to scale this back to just positive and negative moods due to the challenge presented by the refinement of our classifier.
 
@@ -81,7 +83,7 @@ MVP3 was the shiny version of our efforts with a scrolling tweet bar so you can 
 
 We looked at various classifiers available to use with the NLTK Python platform for human language processing. After testing each one for accuracy we chose Naive Bayes as it gave the most consistently high accuracy ratings when tested:
 
-![alt text](https://github.com/AAMani5/digitalaffect/blob/master/images/Screen%20Shot%202017-04-27%20at%2016.38.56.png "Naive Bayes accuracy rate")
+![alt text](/images/naive_bayes_accuracy.png "Naive Bayes accuracy rate")
 
 ## Refining our classifier
 
@@ -89,7 +91,7 @@ We began refining our classifier to increase the overall accuracy category match
 
 Before:
 
-![alt text](https://github.com/AAMani5/digitalaffect/blob/master/images/OurTrainedAccuracyBeforeRefinement.png "Before refinement")
+![alt text](/images/OurTrainedAccuracyBeforeRefinement.png "Before refinement")
 
 After:
 
