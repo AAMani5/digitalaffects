@@ -6,7 +6,7 @@ An app that assesses the mood of the country based on digital data.
 
 ## Synopsis
 
-DigitalAffect is at the confluence of sentiment analysis, social media proliferation, machine learning and news media influence.
+DigitalAffect is at the confluence of sentiment analysis, social media proliferation, and machine learning.
 
 We felt machine learning would be the most efficient way to analyse public opinion en masse by automating the sentiment analysis process. We arrived at this conclusion by researching popular tools in this field. The majority of the researchers chose the Python-based NLTK platform for its relatively extensive corpus collection and built-in features for tailoring machine learning.
 
@@ -14,20 +14,37 @@ We chose Chart.js for its sleek display interface and its comprehensive function
 
 We chose Twitter for its convenient character limitation which was ideal for working with our classifier to demonstrate public opinion.
 
-We chose NewsAPI for its extensive access to prominent UK headlines.
-
 ## User Stories
 ```
 As a User,
-So that my mood can be assessed,
-I want to be able to enter a sentence.
+So that the UK's mood can be assessed,
+I want to be able to enter a sentence on the page.
 ```
 ```
 As a User,
-So that my mood can be classified as positive or negative,
+So that the UK's mood can be classified as positive or negative,
 I want to see the word 'positive' or 'negative'.
 ```
-More TBA
+```
+As a User,
+So that I can get an idea about what people in the UK are thinking about a topic,
+I want to be able to see the percentage of people who are positive or negative about it.
+```
+```
+As a User,
+So I can see people's opinions,
+I want to be able to see the tweets from my search results.
+```
+```
+As a User,
+So that I can have a visual representation of the output,
+I would like to see the percentages of positive and negative views represented as a pie chart.
+```
+```
+As a User,
+So I can make another search,
+I want to be able to click back to the homepage.
+```
 
 ## MVP
 
