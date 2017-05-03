@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for, make_response
 from flask_navigation import Navigation
 import requests
 import json
@@ -19,11 +19,12 @@ def index():
 
 @app.route("/json")
 def json():
-    results = session['results']
     text = session['text']
+    # results = session['results']
     tweets = session['tweets']
     values = [results.count('positive'), results.count('negative')]
-    return render_template('results.html', values=values, text=text, tweets=tweets)
+    return render_template('results.html', values=values, text=text)
+
 
 @app.route("/results", methods=['POST'])
 def results():
@@ -35,14 +36,12 @@ def results():
         for tweet in tweets:
             result = naiveBayesSentimentCalculator(tweet)
             results.append(result)
-            
+
         print(len(tweets))
-        values = [results.count('positive'), results.count('negative')]
-        return render_template('results.html', values=values, text=text, tweets=tweets)
-        # session['tweets'] = tweets
+        session['tweets'] = tweets
         # session['results'] = results
-        # session['text'] = text
-        # return redirect(url_for('json'))
+        session['text'] = text
+        return redirect(url_for('json'))
 
 # secret_key for sessions exposed as no sensitive data stored on sessions
 if __name__ == '__main__':
