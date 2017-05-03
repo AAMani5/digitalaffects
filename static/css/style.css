@@ -16,6 +16,7 @@ ul#tweets {
   height: 400px;
   width: 450px;
   list-style-type: none;
+  background-color: skyblue;
 }
 
 li {
@@ -38,6 +39,8 @@ li#tweet {
   width: 450px;
   border-bottom-style: inset;
   text-align: left;
+  background-color: skyblue;
+  color: white;
 }
 
 div#tweet-box {
@@ -155,3 +158,4 @@ button#accept {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
+
