@@ -21,6 +21,7 @@ ul#tweets {
   border: solid 1px #fff;
   box-shadow: inset 1px 1px 2px 0 #707070;
   transition: box-shadow 0.3s;
+  font-weight: 900;
 }
 
 li {
@@ -133,7 +134,8 @@ p#result{
 body {
   font-family: Arial;
   width: 100%;
-  background-color: #fff;
+  color: #2f2f2f;
+  background-color: #f9f7f1;
   text-align: center;
   margin: auto;
 }
