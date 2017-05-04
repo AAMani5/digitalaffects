@@ -17,7 +17,7 @@ ul#tweets {
   list-style-type: none;
   padding: 10px;
   border: solid 1px #fff;
-  box-shadow: inset 1px 1px 2px 0 #707070;
+  box-shadow: inset 1px 1px 8px 0 #707070;
   transition: box-shadow 0.3s;
   color: white;
 }
@@ -41,7 +41,7 @@ li a:hover {
 li#tweet {
   width: 450px;
   text-align: left;
-  background-color: #E0FFFF;
+  background-color: rgba(224, 255, 255, 0.29);
   padding: 10px;
   border: #E0FFFF;
   color: black;
@@ -49,17 +49,18 @@ li#tweet {
   border-style: solid;
   border-color: black;
   border-width: inherit;
+  margin-bottom: 10px;
+  margin-left: 8px;
+
 }
 
 div#tweet-box {
   position: absolute;
   left: 940px;
-  /*margin-left: 40px;*/
   float: left;
   margin-top: 6%;
   padding: 10px;
-  border: none;
-  transition: border 0.3s;
+
 }
 
 div#pie-chart-container {
