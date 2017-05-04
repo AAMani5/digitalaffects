@@ -8,14 +8,18 @@ ul#navbar {
 }
 
 ul#tweets {
-  margin-left: auto;
+  margin: auto;
   overflow: scroll;
   padding: 10px;
-  border-style: groove;
   border-radius: 8px;
   height: 400px;
-  width: 450px;
+  width: 490px;
   list-style-type: none;
+  padding: 10px;
+  border: solid 1px #fff;
+  box-shadow: inset 1px 1px 8px 0 #707070;
+  transition: box-shadow 0.3s;
+  color: white;
 }
 
 li {
@@ -36,16 +40,27 @@ li a:hover {
 
 li#tweet {
   width: 450px;
-  border-bottom-style: inset;
   text-align: left;
+  background-color: rgba(224, 255, 255, 0.29);
+  padding: 10px;
+  border: #E0FFFF;
+  color: black;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: black;
+  border-width: inherit;
+  margin-bottom: 10px;
+  margin-left: 8px;
+
 }
 
 div#tweet-box {
   position: absolute;
   left: 940px;
-  /*margin-left: 40px;*/
   float: left;
   margin-top: 6%;
+  padding: 10px;
+
 }
 
 div#pie-chart-container {
@@ -108,6 +123,7 @@ h3#sub_heading {
   margin-left: 15%;
   margin-top: 5px;
   margin-bottom: 5px;
+
 }
 
 p#result{
@@ -119,7 +135,8 @@ p#result{
 body {
   font-family: Arial;
   width: 100%;
-  background-color: #fff;
+  color: #2f2f2f;
+  background-color: #f9f7f1;
   text-align: center;
   margin: auto;
 }
@@ -142,7 +159,18 @@ title{
 
 span {
   padding-bottom: 10px;
+  font-family: Arial;
+  font-size: 1.5em;
+  color: black;
+  margin-left: 10px;
+  height: 40px;
   float: left;
+}
+
+span#tweet-title {
+  padding-bottom: 0px;
+  height: 30px;
+  margin-top: 8px;
 }
 
 button#accept {
@@ -155,3 +183,5 @@ button#accept {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
+
+

@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
 
-    <h3 id="sub_heading">Mood in the UK about {{text}}</h3>
+    <h3 id="sub_heading">Tweets in the UK about {{text}}</h3>
 
     <div id="pie-chart-container">
 
@@ -12,8 +12,10 @@
     </div>
 
     <div id="tweet-box">
+
       <ul id="tweets">
-        <span><strong>Current Tweets</strong></span>
+        <span id="icon"><img src="/static/twittericon.png"></span><span id="tweet-title">Current Tweets</span></span>
+
         {% for tweet in tweets %}
         <li id="tweet">{{tweet}}
           {% endfor %}
