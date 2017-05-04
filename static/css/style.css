@@ -67,7 +67,7 @@ div#pie-chart-container {
   height: 650px;
   width: 650px;
   position: absolute;
-  left: 252px;
+  left: 15%;
   /*margin-left: 15%;*/
   float: left;
 }
@@ -183,5 +183,3 @@ button#accept {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
-
-
