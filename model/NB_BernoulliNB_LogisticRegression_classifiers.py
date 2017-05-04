@@ -24,3 +24,10 @@ clean_pos_tweetwords = [ word for word in filtered_pos_tweetwords if not word.st
 split_neg_tweets = [words for tweets in neg_tweets for words in tweets.split()]
 filtered_neg_tweets = [ word for word in split_neg_tweets if not word.startswith('@') ]
 clean_neg_tweetwords = [ word for word in filtered_neg_tweets if not word.startswith('http') ]
+
+documents = []
+
+for tweet in pos_tweets:
+    documents.append( (tweet, "positive") )
+for tweet in neg_tweets:
+    documents.append( (tweet, "negative") )
