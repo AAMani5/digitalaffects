@@ -75,3 +75,10 @@ def find_features(document):
     for w in refined_vocabulary:
         features[w] = (w in words)
     return features
+
+random.shuffle(documents)
+
+featuresets = [(find_features(tweet), category) for (tweet, category) in documents]
+
+training_set = featuresets[:9500]
+testing_set = featuresets[9500:]
