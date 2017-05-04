@@ -1,7 +1,7 @@
 import nltk
 import json
-from digitalaffects.nltk_data import twitter_samples
-from digitalaffects.nltk_data import tokenizers
+from nltk.corpus import twitter_samples
+from nltk import tokenizers
 import pickle
 from nltk.tokenize import word_tokenize
 
