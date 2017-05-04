@@ -2,48 +2,52 @@ import nltk
 import json
 from nltk.corpus import twitter_samples
 import pickle
+from nltk.tokenize import word_tokenize
 
 positiveTweets = twitter_samples.strings('positive_tweets.json')
 negativeTweets = twitter_samples.strings('negative_tweets.json')
 
-testTrainingSplitIndex = 2500
+# testTrainingSplitIndex = 2500
+#
+# testNegativetweets = negativeTweets[testTrainingSplitIndex+1:]
+# testPositivetweets = positiveTweets[testTrainingSplitIndex+1:]
+#
+# trainingPositiveTweets = positiveTweets[:testTrainingSplitIndex]
+# trainingNegativeTweets = negativeTweets[:testTrainingSplitIndex]
 
-testNegativetweets = negativeTweets[testTrainingSplitIndex+1:]
-testPositivetweets = positiveTweets[testTrainingSplitIndex+1:]
-
-trainingPositiveTweets = positiveTweets[:testTrainingSplitIndex]
-trainingNegativeTweets = negativeTweets[:testTrainingSplitIndex]
-
-def getVocabulary(trainingPositiveTweets, trainingNegativeTweets):
-    positiveWordList = [word for line in trainingPositiveTweets for word in line.split()]
-    negativeWordList = [word for line in trainingNegativeTweets for word in line.split()]
-    allWordList = [item for sublist in [positiveWordList,negativeWordList] for item in sublist]
-    allWordSet = list(set(allWordList))
-    vocabulary = allWordSet
-    return vocabulary
+# def getVocabulary(trainingPositiveTweets, trainingNegativeTweets):
+#     positiveWordList = [word for line in trainingPositiveTweets for word in line.split()]
+#     negativeWordList = [word for line in trainingNegativeTweets for word in line.split()]
+#     allWordList = [item for sublist in [positiveWordList,negativeWordList] for item in sublist]
+#     allWordSet = list(set(allWordList))
+#     vocabulary = allWordSet
+#     return vocabulary
 
 def extract_features(tweet):
-    tweet_words=set(tweet)
+    tweet_words= word_tokenize("\n".join(tweet))
     features={}
     for word in vocabulary:
         features[word]=(word in tweet_words)
 
     return features
 
-def getTrainingData(trainingPositiveTweets, trainingNegativeTweets):
-  negTaggedTrainingTweetList = [{'Tweet':oneTweet.split(),'label':'negative'} for oneTweet in trainingNegativeTweets]
-  posTaggedTrainingTweetList = [{'Tweet':oneTweet.split(),'label':'positive'} for oneTweet in trainingPositiveTweets]
-  fullTaggedTrainingData = [item for sublist in [negTaggedTrainingTweetList,posTaggedTrainingTweetList] for item in sublist]
-  trainingData = [(Tweet['Tweet'],Tweet['label']) for Tweet in fullTaggedTrainingData]
-  return trainingData
+# def getTrainingData(trainingPositiveTweets, trainingNegativeTweets):
+#   negTaggedTrainingTweetList = [{'Tweet':oneTweet.split(),'label':'negative'} for oneTweet in trainingNegativeTweets]
+#   posTaggedTrainingTweetList = [{'Tweet':oneTweet.split(),'label':'positive'} for oneTweet in trainingPositiveTweets]
+#   fullTaggedTrainingData = [item for sublist in [negTaggedTrainingTweetList,posTaggedTrainingTweetList] for item in sublist]
+#   trainingData = [(Tweet['Tweet'],Tweet['label']) for Tweet in fullTaggedTrainingData]
+#   return trainingData
 
-vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
-trainingData = getTrainingData(trainingPositiveTweets, trainingNegativeTweets)
+# vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
+with open('./pickledfiles/refined_vocabulary.pickle', 'rb') as f:
+    vocabulary = pickle.load(f)
 
-def getTrainedNaiveBayesClassifier(extract_features = extract_features, trainingData = trainingData):
-  trainingFeatures=nltk.classify.apply_features(extract_features, trainingData)
-  trainedNBClassifier=nltk.NaiveBayesClassifier.train(trainingFeatures) # Train the Classifier
-  return trainedNBClassifier
+# trainingData = getTrainingData(trainingPositiveTweets, trainingNegativeTweets)
+
+# def getTrainedNaiveBayesClassifier(extract_features = extract_features, trainingData = trainingData):
+#   trainingFeatures=nltk.classify.apply_features(extract_features, trainingData)
+#   trainedNBClassifier=nltk.NaiveBayesClassifier.train(trainingFeatures) # Train the Classifier
+#   return trainedNBClassifier
 
 # trainedNBClassifier = getTrainedNaiveBayesClassifier(extract_features,trainingData)
 
@@ -56,7 +60,7 @@ def getTrainedNaiveBayesClassifier(extract_features = extract_features, training
 #     pickle.dump(vocabulary, vocabulary_file)
 
 ## unpickling classifier
-with open('./pickledfiles/twitter_classifier.pickle', 'rb') as f:
+with open('./pickledfiles/BernoulliNB.pickle', 'rb') as f:
     trainedNBClassifier = pickle.load(f)
 
 def naiveBayesSentimentCalculator(tweet):
