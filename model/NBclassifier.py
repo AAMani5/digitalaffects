@@ -1,9 +1,9 @@
 import nltk
 import json
 from nltk.corpus import twitter_samples
-from nltk.corpus import punkt
+# from nltk.corpus import punkt
 import pickle
-from nltk.tokenize import word_tokenize
+from nltk import sent_tokenize, word_tokenize
 
 positiveTweets = twitter_samples.strings('positive_tweets.json')
 negativeTweets = twitter_samples.strings('negative_tweets.json')
