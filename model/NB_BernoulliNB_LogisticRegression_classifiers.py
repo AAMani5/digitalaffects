@@ -68,3 +68,10 @@ refined_vocabulary = [word for word in word_features if word not in stop_words]
 save_refined_vocabulary = open("refined_vocabulary.pickle", "wb")
 pickle.dump(refined_vocabulary, save_refined_vocabulary)
 save_refined_vocabulary.close()
+
+def find_features(document):
+    words = word_tokenize(document)
+    features = {}
+    for w in refined_vocabulary:
+        features[w] = (w in words)
+    return features
