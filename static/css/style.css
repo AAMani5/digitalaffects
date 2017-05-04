@@ -16,17 +16,17 @@ ul#tweets {
   height: 400px;
   width: 500px;
   list-style-type: none;
-  background-color: #ADD8E6;
+  
   padding: 10px;
   border: solid 1px #fff;
   box-shadow: inset 1px 1px 2px 0 #707070;
   transition: box-shadow 0.3s;
-  font-weight: 900;
   color: white;
 }
 
 li {
     float: left;
+    margin: 10px;
 }
 
 li a {
@@ -61,7 +61,6 @@ div#tweet-box {
   margin-top: 6%;
   padding: 10px;
   border: none;
-  border-bottom: solid 2px #c9c9c9;
   transition: border 0.3s;
 }
 
@@ -162,6 +161,10 @@ title{
 span {
   padding-bottom: 10px;
   float: left;
+  font-family: Arial;
+  font-size: 1.5em;
+  text-align: center;
+  color: #82CAFF;
 }
 
 button#accept {
