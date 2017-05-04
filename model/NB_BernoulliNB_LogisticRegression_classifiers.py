@@ -31,3 +31,24 @@ for tweet in pos_tweets:
     documents.append( (tweet, "positive") )
 for tweet in neg_tweets:
     documents.append( (tweet, "negative") )
+
+all_words = []
+
+short_pos_words = word_tokenize("\n".join(clean_pos_tweetwords))
+short_neg_words = word_tokenize("\n".join(clean_neg_tweetwords))
+
+word_regex = r'^\w+$'
+
+def is_word(sample):
+    match = re.match(word_regex, sample)
+    if match:
+        return True
+    else:
+        return False
+
+for word in short_pos_words:
+    if is_word(word):
+        all_words.append(word.lower())
+for word in short_neg_words:
+    if is_word(word):
+        all_words.append(word.lower())
