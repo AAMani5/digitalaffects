@@ -8,13 +8,12 @@ ul#navbar {
 }
 
 ul#tweets {
-  margin-left: auto;
+  margin: auto;
   overflow: scroll;
   padding: 10px;
-  border-style: groove;
   border-radius: 8px;
   height: 400px;
-  width: 500px;
+  width: 490px;
   list-style-type: none;
   padding: 10px;
   border: solid 1px #fff;
@@ -25,7 +24,6 @@ ul#tweets {
 
 li {
     float: left;
-    margin: 10px;
 }
 
 li a {
@@ -42,14 +40,15 @@ li a:hover {
 
 li#tweet {
   width: 450px;
-  border-bottom-style: inset;
   text-align: left;
   background-color: #E0FFFF;
   padding: 10px;
   border: #E0FFFF;
-  box-shadow: inset 0 0 0 1px #707070;
-  transition: box-shadow 0.3s, border 0.3s;
   color: black;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: black;
+  border-width: inherit;
 }
 
 div#tweet-box {
