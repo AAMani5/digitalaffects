@@ -3,17 +3,18 @@ import requests
 import json
 import pickle
 from twitterAPI import getTweets
-
-with open('twitter_classifier.pickle', 'rb') as f:
+from nltk.tokenize import word_tokenize
+with open('naivebayes.pickle', 'rb') as f:
     trainedNBClassifier = pickle.load(f)
 
-with open('vocabulary.pickle', 'rb') as vocabulary_file:
+with open('ref_word_features.pickle', 'rb') as vocabulary_file:
     vocabulary = pickle.load(vocabulary_file)
 
 app = Flask(__name__)
 
 def extract_features(tweet):
-  tweet_words=set(tweet)
+  tweet_words= word_tokenize("\n".join(tweet))
+  print(tweet_words)
   features={}
   for word in vocabulary:
       features[word]=(word in tweet_words)
