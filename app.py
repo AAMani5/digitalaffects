@@ -29,7 +29,7 @@ def results():
             results.append(result)
         tests =zip(tweets,results)
         values = [results.count('positive'), results.count('negative')]
-        return render_template('results.html', values=values, text=text, tests=tests)
+        return render_template('results.html', values=values, text=text, tweets=tweets)
 
 
 if __name__ == '__main__':
