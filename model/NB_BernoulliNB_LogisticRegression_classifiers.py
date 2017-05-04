@@ -52,3 +52,13 @@ for word in short_pos_words:
 for word in short_neg_words:
     if is_word(word):
         all_words.append(word.lower())
+
+all_words = nltk.FreqDist(all_words)
+
+common_words = all_words.most_common(20)
+common_words_dictionary = dict(common_words)
+stop_words = list(common_words_dictionary.keys())
+
+
+word_features = list(all_words.keys())[:5000]
+refined_vocabulary = [word for word in word_features if word not in stop_words]
