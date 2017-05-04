@@ -87,27 +87,41 @@ featuresets = [(find_features(tweet), category) for (tweet, category) in documen
 training_set = featuresets[:9500]
 testing_set = featuresets[9500:]
 
-classifier = nltk.NaiveBayesClassifier.train(training_set)
+classifier_originalNB = open("original_NB.pickle", "rb")
+classifier = pickle.load(classifier_originalNB)
+classifier_originalNB.close()
 
-BernoulliNB_classifier = SklearnClassifier(BernoulliNB())
-BernoulliNB_classifier.train(training_set)
+classifier_BernoulliNB = open("BernoulliNB.pickle", "rb")
+BernoulliNB_classifier = pickle.load(classifier_BernoulliNB)
+classifier_BernoulliNB.close()
 
-LogisticRegression_classifier = SklearnClassifier(LogisticRegression())
-LogisticRegression_classifier.train(training_set)
+classifier_LogisticRegression = open("LogisticRegression.pickle", "rb")
+LogisticRegression_classifier = pickle.load(classifier_LogisticRegression)
+classifier_LogisticRegression.close()
+
+# TRAIN classifiers
+# classifier = nltk.NaiveBayesClassifier.train(training_set)
+#
+# BernoulliNB_classifier = SklearnClassifier(BernoulliNB())
+# BernoulliNB_classifier.train(training_set)
+#
+# LogisticRegression_classifier = SklearnClassifier(LogisticRegression())
+# LogisticRegression_classifier.train(training_set)
 
 print("Original Naive Bayes accuracy percent:", (nltk.classify.accuracy(classifier, testing_set))*100)
 classifier.show_most_informative_features(15)
 print("BernoulliNB_classifier accuracy percent:", (nltk.classify.accuracy(BernoulliNB_classifier, testing_set))*100)
 print("LogisticRegression_classifier accuracy percent:", (nltk.classify.accuracy(LogisticRegression_classifier, testing_set))*100)
 
-save_LogisticRegression_classifier = open("LogisticRegression.pickle", "wb")
-pickle.dump(LogisticRegression_classifier, save_LogisticRegression_classifier)
-save_LogisticRegression_classifier.close()
-
-save_BernoulliNB_classifier = open("BernoulliNB.pickle", "wb")
-pickle.dump(BernoulliNB_classifier, save_BernoulliNB_classifier)
-save_BernoulliNB_classifier.close()
-
-save_originalNB_classifier = open("original_NB.pickle", "wb")
-pickle.dump(classifier, save_originalNB_classifier)
-save_originalNB_classifier.close()
+# SAVE trained classifiers
+# save_LogisticRegression_classifier = open("LogisticRegression.pickle", "wb")
+# pickle.dump(LogisticRegression_classifier, save_LogisticRegression_classifier)
+# save_LogisticRegression_classifier.close()
+#
+# save_BernoulliNB_classifier = open("BernoulliNB.pickle", "wb")
+# pickle.dump(BernoulliNB_classifier, save_BernoulliNB_classifier)
+# save_BernoulliNB_classifier.close()
+#
+# save_originalNB_classifier = open("original_NB.pickle", "wb")
+# pickle.dump(classifier, save_originalNB_classifier)
+# save_originalNB_classifier.close()
