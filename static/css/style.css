@@ -159,12 +159,18 @@ title{
 
 span {
   padding-bottom: 10px;
-  float: left;
   font-family: Arial;
   font-size: 1.5em;
-  text-align: center;
   color: black;
   margin-left: 10px;
+  height: 40px;
+  float: left;
+}
+
+span#tweet-title {
+  padding-bottom: 0px;
+  height: 30px;
+  margin-top: 8px;
 }
 
 button#accept {
