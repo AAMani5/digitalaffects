@@ -61,4 +61,10 @@ stop_words = list(common_words_dictionary.keys())
 
 
 word_features = list(all_words.keys())[:5000]
+print(word_features)
+print(stop_words)
 refined_vocabulary = [word for word in word_features if word not in stop_words]
+
+save_refined_vocabulary = open("refined_vocabulary.pickle", "wb")
+pickle.dump(refined_vocabulary, save_refined_vocabulary)
+save_refined_vocabulary.close()
