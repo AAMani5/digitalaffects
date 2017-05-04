@@ -2,7 +2,7 @@ import nltk
 import json
 from nltk.corpus import twitter_samples
 import pickle
-from nltk.tokenize import word_tokenize
+# from nltk.tokenize import word_tokenize
 
 positiveTweets = twitter_samples.strings('positive_tweets.json')
 negativeTweets = twitter_samples.strings('negative_tweets.json')
@@ -24,7 +24,7 @@ def getVocabulary(trainingPositiveTweets, trainingNegativeTweets):
     return vocabulary
 
 def extract_features(tweet):
-    tweet_words= word_tokenize("\n".join(tweet))
+    tweet_words= set(tweet)
     features={}
     for word in vocabulary:
         features[word]=(word in tweet_words)
