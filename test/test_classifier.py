@@ -1,6 +1,6 @@
 import pytest
 import pytest
-from digitalaffects.model.NBclassifier import getVocabulary, extract_features, getTrainingData, getTrainedNaiveBayesClassifier, getTrainedNaiveBayesClassifier, naiveBayesSentimentCalculator
+from digitalaffect.model.NBclassifier import getVocabulary, extract_features, getTrainingData, getTrainedNaiveBayesClassifier, getTrainedNaiveBayesClassifier, naiveBayesSentimentCalculator
 
 def multiply(a, b):
     return a * b
