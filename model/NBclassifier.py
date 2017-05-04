@@ -48,11 +48,11 @@ def getTrainedNaiveBayesClassifier(extract_features = extract_features, training
 # trainedNBClassifier = getTrainedNaiveBayesClassifier(extract_features,trainingData)
 
 ## pickling classifier, vocabulary
-# with open('../pickledfiles/twitter_classifier.pickle', 'wb') as f:
-#     pickle.dump(trainedNBClassifier, f)
+# with open('./pickledfiles/twitter_classifier.pickle', 'wb') as f:
+#     pickle.dump(trainedNBClassifier, f, protocol=2)
 #
 #
-# with open('../pickledfiles/vocabulary.pickle', 'wb') as vocabulary_file:
+# with open('./pickledfiles/vocabulary.pickle', 'wb') as vocabulary_file:
 #     pickle.dump(vocabulary, vocabulary_file)
 
 ## unpickling classifier
