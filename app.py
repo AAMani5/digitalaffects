@@ -27,7 +27,7 @@ def results():
         for tweet in tweets:
             result = naiveBayesSentimentCalculator(tweet)
             results.append(result)
-
+        tests =zip(tweets,results)
         values = [results.count('positive'), results.count('negative')]
         return render_template('results.html', values=values, text=text, tweets=tweets)
 
