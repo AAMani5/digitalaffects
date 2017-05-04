@@ -14,11 +14,12 @@
     <div id="tweet-box">
       <ul id="tweets">
         <span><strong>Current Tweets</strong></span>
-        {% for tweet in tweets %}
-        <li id="tweet">{{tweet}}
+        {% for test in tests %}
+        <li id="tweet">{{test}}
           {% endfor %}
         </ul>
       </div>
+
 
     <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
     <script>
