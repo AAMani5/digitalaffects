@@ -1,11 +1,10 @@
 import tweepy
 import json
 import os
-from apikeys import ckey, csecret, atoken, asecret
 
-def getTweets(query="belieber", lang="en", count="10", result_type="recent", filename="tweets.txt", geocode="53.721247,3.904416,300mi"):
-    auth = tweepy.OAuthHandler(ckey, csecret)
-    auth.set_access_token(atoken, asecret)
+def getTweets(query="belieber", lang="en", count="100", result_type="recent", filename="tweets.txt", geocode="53.721247,3.904416,300mi"):
+    auth = tweepy.OAuthHandler(os.environ['ckey'], os.environ['csecret'])
+    auth.set_access_token(os.environ['atoken'], os.environ['asecret'])
 
     api = tweepy.API(auth)
 
