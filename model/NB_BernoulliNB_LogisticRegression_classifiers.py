@@ -82,3 +82,16 @@ featuresets = [(find_features(tweet), category) for (tweet, category) in documen
 
 training_set = featuresets[:9500]
 testing_set = featuresets[9500:]
+
+classifier = nltk.NaiveBayesClassifier.train(training_set)
+
+BernoulliNB_classifier = SklearnClassifier(BernoulliNB())
+BernoulliNB_classifier.train(training_set)
+
+LogisticRegression_classifier = SklearnClassifier(LogisticRegression())
+LogisticRegression_classifier.train(training_set)
+
+print("Original Naive Bayes accuracy percent:", (nltk.classify.accuracy(classifier, testing_set))*100)
+classifier.show_most_informative_features(15)
+print("BernoulliNB_classifier accuracy percent:", (nltk.classify.accuracy(BernoulliNB_classifier, testing_set))*100)
+print("LogisticRegression_classifier accuracy percent:", (nltk.classify.accuracy(LogisticRegression_classifier, testing_set))*100)
