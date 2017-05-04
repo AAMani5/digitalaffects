@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 from flask_navigation import Navigation
 import requests
 import json
+import os
 import pickle
 from model.twitterAPI import getTweets
 from model.NBclassifier import naiveBayesSentimentCalculator
@@ -34,4 +35,5 @@ def results():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
