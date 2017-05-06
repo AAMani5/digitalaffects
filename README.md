@@ -103,6 +103,8 @@ Before:
 
 After:
 
+![alt text](/images/classifier_accuracy_after_refinement.png "After refinement")
+
 ## Successes
 
 * Reached MVP on day two!
