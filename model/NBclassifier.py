@@ -2,6 +2,7 @@ import nltk
 import json
 from nltk.corpus import twitter_samples
 import pickle
+# from nltk.tokenize import word_tokenize
 
 positiveTweets = twitter_samples.strings('positive_tweets.json')
 negativeTweets = twitter_samples.strings('negative_tweets.json')
@@ -23,7 +24,7 @@ def getVocabulary(trainingPositiveTweets, trainingNegativeTweets):
     return vocabulary
 
 def extract_features(tweet):
-    tweet_words=set(tweet)
+    tweet_words= set(tweet)
     features={}
     for word in vocabulary:
         features[word]=(word in tweet_words)
@@ -37,7 +38,10 @@ def getTrainingData(trainingPositiveTweets, trainingNegativeTweets):
   trainingData = [(Tweet['Tweet'],Tweet['label']) for Tweet in fullTaggedTrainingData]
   return trainingData
 
-vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
+# vocabulary = getVocabulary(trainingPositiveTweets, trainingNegativeTweets)
+with open('./pickledfiles/refined_vocabulary.pickle', 'rb') as f:
+    vocabulary = pickle.load(f)
+
 trainingData = getTrainingData(trainingPositiveTweets, trainingNegativeTweets)
 
 def getTrainedNaiveBayesClassifier(extract_features = extract_features, trainingData = trainingData):
@@ -56,7 +60,7 @@ def getTrainedNaiveBayesClassifier(extract_features = extract_features, training
 #     pickle.dump(vocabulary, vocabulary_file)
 
 ## unpickling classifier
-with open('./pickledfiles/twitter_classifier.pickle', 'rb') as f:
+with open('./pickledfiles/BernoulliNB.pickle', 'rb') as f:
     trainedNBClassifier = pickle.load(f)
 
 def naiveBayesSentimentCalculator(tweet):

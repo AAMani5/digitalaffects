@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
   <img id="home-logo" src="/static/da_logo_small.png"/>
-    <form action="{{url_for('results')}}" method="POST">
+    <form action="{{url_for('results')}}" method="GET">
       <input type="text" name="userinput">
       <button type="submit" id="accept"><b>Get mood</b></button>
     </form>
