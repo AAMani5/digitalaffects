@@ -1,7 +1,6 @@
 import nltk
 import json
 from nltk.corpus import twitter_samples
-# from nltk.corpus import punkt
 import pickle
 from nltk import sent_tokenize, word_tokenize
 
