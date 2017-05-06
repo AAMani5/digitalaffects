@@ -4,6 +4,16 @@
 
 An app that assesses the mood of the country based on digital data.
 
+## Deployment
+
+* git clone this repo
+* run a virtualenv
+* pip3 install -r requirements.txt
+* get Twitter dev access and generate app keys
+* add them as environment variables (ckey, csecret, atoken, asecret)
+* run python3 app.py in command line
+* open localhost:5000
+
 ## Synopsis
 
 DigitalAffect is at the confluence of sentiment analysis, social media proliferation, and machine learning.
