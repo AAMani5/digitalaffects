@@ -6,4 +6,3 @@ twitterAPI.cpython-36.pyc
 __pycache__/
 model/__pycache__/*.pyc
 .DS_Store
-/nltk_data/
