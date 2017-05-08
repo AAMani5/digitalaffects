@@ -83,7 +83,7 @@ The MVP2 was a pie chart generated from the data given that showed multiple mood
 
 ![alt text](/images/pie-1.png "MVP2 Pie chart")
 
-MVP3 was the shiny version of our efforts with a scrolling tweet bar so you can see UK Twitter's opinions for yourself. We couple this with added classifier refinement, though we recognise in 2 weeks it's unlikely to be perfect.
+MVP3 was the shiny version of our efforts with a scrolling tweet bar so you can see UK Twitter's opinions for yourself. We coupled this with added classifier refinement, though we recognise in 2 weeks it's unlikely to be perfect.
 
 ![alt text](/images/mvp3.png "MVP3 results page")
 
