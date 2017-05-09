@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask import Flask, render_template, request
 from flask_navigation import Navigation
 import requests
 import json
@@ -28,7 +28,6 @@ def results():
         for tweet in tweets:
             result = naiveBayesSentimentCalculator(tweet)
             results.append(result)
-
         values = [results.count('positive'), results.count('negative')]
         return render_template('results.html', values=values, text=text, tweets=tweets)
 
