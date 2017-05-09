@@ -1,1 +1,3 @@
-{}
+{
+  "test/test_app.py::TestApp::()::test_search": true
+}
