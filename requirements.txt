@@ -35,3 +35,6 @@ traitlets==4.3.2
 tweepy==3.5.0
 wcwidth==0.1.7
 Werkzeug==0.12.1
+capybara-py==0.0.2
+pytest-flask==0.10.0
+selenium==3.4.1
