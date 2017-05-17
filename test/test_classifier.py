@@ -1,12 +1,5 @@
 import pytest
-import pytest
 from digitalaffects.model.NBclassifier import getVocabulary, extract_features, getTrainingData, getTrainedNaiveBayesClassifier, getTrainedNaiveBayesClassifier, naiveBayesSentimentCalculator
-
-def multiply(a, b):
-    return a * b
-
-def test_numbers_3_4():
-    assert multiply(3,4)==12
 
 def test_extract_features():
     assert set(extract_features("this is a test").values()) == set([False,True])
