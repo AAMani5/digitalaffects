@@ -8,6 +8,7 @@ An app that assesses the mood of the country based on digital data.
 
 * git clone this repo
 * run a virtualenv
+* source venv/bin/activate
 * pip3 install -r requirements.txt
 * get Twitter dev access and generate app keys
 * add them as environment variables (ckey, csecret, atoken, asecret)
