@@ -4,7 +4,7 @@
 
 An app that assesses the mood of the country based on digital data.
 
-## Deployment
+## Installation and Use
 
 * git clone this repo
 * run a virtualenv
@@ -13,6 +13,9 @@ An app that assesses the mood of the country based on digital data.
 * add them as environment variables (ckey, csecret, atoken, asecret)
 * run python3 app.py in command line
 * open localhost:5000
+
+## Deployment
+Please visit our app at https://digitalaffect.herokuapp.com/
 
 ## Synopsis
 
@@ -79,11 +82,11 @@ We planned out how hopes for our first 3 MVPs. The first was a simple text input
 
 ![alt text](/images/negMVP.png "Trump Negative")
 
-The MVP2 was a pie chart generated from the data given that showed multiple moods. In reality we had to scale this back to just positive and negative moods due to the challenge presented by the refinement of our classifier.
+The version 1 was a pie chart generated from the data given that showed multiple moods. In reality we had to scale this back to just positive and negative moods due to the challenge presented by the refinement of our classifier.
 
 ![alt text](/images/pie-1.png "MVP2 Pie chart")
 
-MVP3 was the shiny version of our efforts with a scrolling tweet bar so you can see UK Twitter's opinions for yourself. We coupled this with added classifier refinement, though we recognise in 2 weeks it's unlikely to be perfect.
+Version 2 was the shiny version of our efforts with a scrolling tweet bar so you can see UK Twitter's opinions for yourself. We coupled this with added classifier refinement, though we recognise in 2 weeks it's unlikely to be perfect.
 
 ![alt text](/images/mvp3.png "MVP3 results page")
 
